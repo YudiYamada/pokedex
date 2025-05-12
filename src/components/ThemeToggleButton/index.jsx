@@ -1,13 +1,12 @@
-import React from "react";
-import useTheme from "../../hooks/useTheme";
 import { VscColorMode } from "react-icons/vsc";
-import { Button } from "./style";
+import { useTheme } from "../../contexts/ThemeContext";
+import { Button } from "./ThemeToggleButtonStyles";
 
 const ThemeToggleButton = () => {
-  const { toggleTheme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
 
   return (
-    <Button onClick={toggleTheme}>
+    <Button onClick={toggleTheme} theme={theme}>
       <VscColorMode />
     </Button>
   );

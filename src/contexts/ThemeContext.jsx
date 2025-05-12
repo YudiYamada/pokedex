@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 import { themes } from "../styles/theme";
 
 const ThemeContext = createContext();
@@ -11,7 +11,6 @@ export const ThemeProvider = ({ children }) => {
       prevTheme === themes.lightTheme ? themes.darkTheme : themes.lightTheme
     );
   };
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
@@ -19,4 +18,4 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-export default ThemeContext;
+export const useTheme = () => useContext(ThemeContext);
