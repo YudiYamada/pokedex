@@ -7,7 +7,6 @@ function Footer() {
       <ul>
         <li>
           <a
-            className="link-a"
             href="https://www.linkedin.com/in/yudi-yamada-0a10181b9/"
             target="_blank"
             rel="noopener noreferrer"
@@ -17,7 +16,6 @@ function Footer() {
         </li>
         <li>
           <a
-            className="link-a"
             href="https://github.com/YudiYamada"
             target="_blank"
             rel="noopener noreferrer"

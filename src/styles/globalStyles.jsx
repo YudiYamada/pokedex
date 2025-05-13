@@ -11,16 +11,11 @@ const GlobalStyles = createGlobalStyle`
 body {
   background-color: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
-  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
   a {
     text-decoration: none;
-    color: ${({ theme }) => theme.secondary};
-
-    &:hover {
-      color: ${({ theme }) => theme.primary};
-    }
   }
 
   li {
