@@ -10,7 +10,7 @@ const AppContent = () => {
   return (
     <StyledThemeProvider theme={theme}>
       <GlobalStyles />
-      <BrowserRouter>
+      <BrowserRouter basename="/pokedex">
         <AppRoutes />
       </BrowserRouter>
     </StyledThemeProvider>
