@@ -1,81 +1,120 @@
-# 📖 Pokédex - React App
+# 📖 Pokédex
 
-Bem-vindo à **Pokédex**, um aplicativo web desenvolvido em **React** que consome a **PokéAPI** para exibir informações detalhadas sobre Pokémon. 🚀  
-Com ele, você pode:
-- **Buscar Pokémon por nome ou ID**
-- **Explorar uma lista inicial de Pokémon e carregar mais**
-- **Visualizar detalhes como imagem, tipos, habilidades e movimentos**
-- **Alternar entre tema claro e escuro**
+Bem-vindo à **Pokédex**, um aplicativo web desenvolvido em **React** que consome a **PokéAPI** para exibir informações detalhadas sobre Pokémon.  
+O propósito desta aplicação é representar uma Pokédex interativa, onde o usuário pode pesquisar e explorar informações de Pokémon, simulando uma experiência semelhante àquela apresentada nos jogos da franquia. É um exercício do curso de programação **DevEmDobro**, no qual foram exploradas boas práticas de desenvolvimento e decisões de arquitetura para promover um código modular, manutenível e escalável.
 
 ## [Vizualize o projeto clicando aqui](https://yudiyamada.github.io/pokedex/)
 
-## ⚡ Funcionalidades
+## 🔥 Funcionalidades
 
-### ✅ **1. Listagem de Pokémon**
-A Home exibe **os 10 primeiros Pokémon** recuperados da PokéAPI, com imagem, nome e tipos.
-
-### ✅ **2. Botão "Carregar mais"**
-Ao clicar, mais 10 Pokémon são adicionados à lista.
-
-### ✅ **3. Página de Detalhes**
-Cada Pokémon é clicável, levando o usuário a uma página com:
-- **Imagem**
-- **Nome**
-- **Lista de movimentos**
-- **Lista de habilidades (com descrição)**
-- **Tipos**
-
-### ✅ **4. Barra de Pesquisa**
-O usuário pode buscar Pokémon por **nome ou ID**.
-
-### ✅ **5. Alternância de Tema**
-O usuário pode alternar entre **modo claro e escuro**, garantindo uma melhor experiência visual.
+- **Buscar Pokémon por nome ou ID:** Utilize a barra de pesquisa para encontrar um Pokémon específico.
+- **Listagem de Pokémon:** Exibe os 10 primeiros Pokémon recuperados da PokéAPI, com imagem, nome e tipos.
+- **Carregar mais Pokémon:** Ao clicar no botão "Carregar mais", mais 10 Pokémon são adicionados à lista.
+- **Página de Detalhes:** Cada Pokémon é clicável, levando o usuário a uma página com:
+  - Imagem
+  - Nome
+  - Lista de movimentos
+  - Lista de habilidades (com descrição)
+  - Tipos
+- **Alternância de Tema:** Permite trocar entre os modos claro e escuro, melhorando a experiência visual.
 
 ---
 
-## 🎨 Estilização
+## 🛠 Ferramentas Utilizadas e Justificativas
 
-O projeto utiliza **Styled Components** para modularizar os estilos e manter um código limpo.
+- **React 19:** Escolhido pela sua robustez, facilidade de criar interfaces dinâmicas e componenteização, permitindo um desenvolvimento modular e escalável.
+- **Axios:** Utilizado para realizar requisições HTTP de forma simples e eficiente à PokéAPI.
+- **Styled Components:** Permite a criação de estilos encapsulados dentro dos componentes, evitando conflitos globais e facilitando a manutenção do código CSS.
+- **React Router DOM:** Facilita a navegação entre páginas, possibilitando uma experiência de Single Page Application (SPA) com rotas declarativas.
+- **Context API:** Usado para gerenciamento de estado global (ex.: tema claro/escuro), simplificando a comunicação entre componentes sem a necessidade de prop drilling.
+
+---
+
+## 💡 Decisões Adotadas Durante o Desafio
+
+- **Componente e Estrutura Modular:**  
+  A aplicação foi dividida em componentes menores (como `PokemonCard`, `PokemonSearch`, `Header`, `Footer`) para facilitar a manutenção, testes e reutilização. Essa abordagem garante que cada parte da interface tenha responsabilidade única.
+  
+- **Uso do Styled Components:**  
+  Optou-se pelo Styled Components para facilitar a aplicação de temas dinâmicos (modo claro/escuro) e garantir que os estilos fiquem isolados ao componente, promovendo um código mais limpo e escalável.
+  
+- **Gerenciamento de Tema com Context API:**  
+  Para simplificar a troca entre os temas, a Context API foi adotada, permitindo que o estado do tema fosse compartilhado globalmente sem complexidade.
+  
+- **React Router como Solução de Roteamento:**  
+  A utilização do React Router DOM possibilitou uma estrutura clara e intuitiva para a navegação entre a listagem de Pokémon e a página de detalhes, facilitando a experiência do usuário.
+  
+- **Integração com a PokéAPI:**  
+  A escolha da PokéAPI permitiu desenvolver uma aplicação real e interativa, oferecendo dados ricos sobre Pokémon para explorar e manipular, o que foi fundamental para o desafio.
 
 ---
 
 ## 🚀 Como Rodar o Projeto
 
-### 🔧 **Instalar dependências**
-```sh
-npm install
-```
+### Pré-requisitos
+- **Node.js** (versão 14 ou superior)
+- **npm** ou **yarn**
 
-### 🚀 **Rodar o projeto**
-```sh
-npm run dev
-```
+### Passo a Passo
 
-### 🔍 **Ver no navegador**
-O projeto estará disponível em `http://localhost:5173`.
+1. **Clonar o Repositório**
+   ```sh
+   git clone https://github.com/YudiYamada/pokedex.git
+   cd pokedex
+   ```
+
+2. **Instalar Dependências**
+   ```sh
+   npm install
+   # ou
+   yarn install
+   ```
+
+3. **Rodar o Projeto em Desenvolvimento**
+   ```sh
+   npm run dev
+   # ou
+   yarn dev
+   ```
+   O projeto estará disponível em `http://localhost:5173`.
+
+4. **Construir para Produção**
+   ```sh
+   npm run build
+   # ou
+   yarn build
+   ```
+
+5. **Preview do Projeto em Produção**
+   ```sh
+   npm run preview
+   # ou
+   yarn preview
+   ```
 
 ---
 
 ## 🔌 Tecnologias Utilizadas
 
-- ⚛️ **React 19**
-- 🛠 **Axios** para requisições HTTP
-- 🎨 **Styled Components** para estilização dinâmica
-- 🌍 **React Router DOM** para navegação entre páginas
-- 🔄 **Context API** para gerenciamento de tema
+- **React 19**
+- **Axios**
+- **Styled Components**
+- **React Router DOM**
+- **Context API**
+
+Essas ferramentas foram escolhidas por sua eficiência, robustez e potencial de oferecer uma experiência de desenvolvimento moderna e escalável.
 
 ---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por 
-[Yudi Yamada](https://github.com/YudiYamada)  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/yudi-yamada-0a10181b9/)   
+Desenvolvido por [Yudi Yamada](https://github.com/YudiYamada)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin)](https://www.linkedin.com/in/yudi-yamada-0a10181b9/)  
+[![GitHub](https://img.shields.io/badge/GitHub-black?logo=github)](https://github.com/YudiYamada)
 
 ---
 
 ## 📜 Licença
 
-Este projeto é open-source e pode ser utilizado e modificado livremente. 🚀🎉  
-
-Caso queira contribuir, sinta-se à vontade para enviar pull requests! 😃🔥  
+Este projeto é open-source e pode ser utilizado e modificado livremente.  
+Caso queira contribuir, sinta-se à vontade para enviar pull requests!
