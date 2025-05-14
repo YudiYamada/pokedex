@@ -8,33 +8,46 @@ const Pokemon = () => {
   const { name } = useParams();
   const [pokemon, setPokemon] = useState(null);
   const [abilitiesDetails, setAbilitiesDetails] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const fetchDetail = async () => {
-      const detail = await getPokemonDetail(name);
-      setPokemon(detail);
+      try {
+        const detail = await getPokemonDetail(name);
 
-      const abilities = await Promise.all(
-        detail.abilities.map(async (abilityObj) => {
-          const abilityRes = await axios.get(abilityObj.ability.url);
-          const effectEntry = abilityRes.data.effect_entries.find(
-            (entry) => entry.language.name === "en"
-          );
-          return {
-            name: abilityRes.data.name,
-            description: effectEntry
-              ? effectEntry.short_effect
-              : "No description available",
-          };
-        })
-      );
-      setAbilitiesDetails(abilities);
+        if (!detail || detail.error) {
+          setError(true);
+          return;
+        }
+
+        setPokemon(detail);
+        setError(false);
+
+        const abilities = await Promise.all(
+          detail.abilities.map(async (abilityObj) => {
+            const abilityRes = await axios.get(abilityObj.ability.url);
+            const effectEntry = abilityRes.data.effect_entries.find(
+              (entry) => entry.language.name === "en"
+            );
+            return {
+              name: abilityRes.data.name,
+              description: effectEntry
+                ? effectEntry.short_effect
+                : "No description available",
+            };
+          })
+        );
+        setAbilitiesDetails(abilities);
+      } catch (err) {
+        setError(true, err);
+      }
     };
 
     fetchDetail();
   }, [name]);
 
-  if (!pokemon) return <div>Loading...</div>;
+  if (error) return <div>Pokémon não encontrado.</div>;
+  if (!pokemon) return <div>Carregando...</div>;
 
   return (
     <PokemonContainer>
